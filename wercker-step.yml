@@ -1,0 +1,23 @@
+---
+name: git-not-behind-branch
+version: 0.0.1
+description: Makes it easy to validate whether the current commit is not behind master. And if it is by how much.
+keywords:
+  - git
+  - branch
+properties:
+  branch:
+    type: string
+    required: true
+  fail_on_behind:
+    type: string
+    default: true
+    required: false
+  msg_not_behind:
+    type: string
+    default: Not behind %s.
+    required: false
+  msg_behind:
+    type: string
+    default: You are %d commits behind %s.
+    required: false
