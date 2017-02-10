@@ -11,9 +11,7 @@ if [ ! -n "$WERCKER_GIT_NOT_BEHIND_BRANCH_FAIL_ON_BEHIND" ] ; then
 fi
 
 if ! [ "$WERCKER_GIT_NOT_BEHIND_BRANCH_FAIL_ON_BEHIND" == "true" ] \
-    || ! [ "$WERCKER_GIT_NOT_BEHIND_BRANCH_FAIL_ON_BEHIND" == "false" ] \
-    || ! [ "$WERCKER_GIT_NOT_BEHIND_BRANCH_FAIL_ON_BEHIND" == true ] \
-    || ! [ "$WERCKER_GIT_NOT_BEHIND_BRANCH_FAIL_ON_BEHIND" == false ]; then
+    && ! [ "$WERCKER_GIT_NOT_BEHIND_BRANCH_FAIL_ON_BEHIND" == "false" ] ; then
     error "fail_on_behind property can only be be true or false."
     exit 1
 fi
@@ -35,8 +33,7 @@ if [ "$COMMITS_BEHIND_MASTER" == "0" ] ; then
 else
     info $(printf "$WERCKER_GIT_NOT_BEHIND_BRANCH_MSG_BEHIND" $COMMITS_BEHIND_MASTER $WERCKER_GIT_NOT_BEHIND_BRANCH_BRANCH)
 
-    if [ $WERCKER_GIT_NOT_BEHIND_BRANCH_FAIL_ON_BEHIND == "true" ] \
-        || [ $WERCKER_GIT_NOT_BEHIND_BRANCH_FAIL_ON_BEHIND == true ]; then
+    if [ $WERCKER_GIT_NOT_BEHIND_BRANCH_FAIL_ON_BEHIND == "true" ] ; then
         exit 1
     fi
 fi
