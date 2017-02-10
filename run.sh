@@ -33,9 +33,11 @@ if [ "$COMMITS_BEHIND_MASTER" == "0" ] ; then
     info "$MSG"
 else
     MSG=$(printf "$WERCKER_GIT_NOT_BEHIND_BRANCH_MSG_BEHIND" "$COMMITS_BEHIND_MASTER" "$WERCKER_GIT_NOT_BEHIND_BRANCH_BRANCH")
-    info "$MSG"
 
     if [ $WERCKER_GIT_NOT_BEHIND_BRANCH_FAIL_ON_BEHIND == "true" ] ; then
+        error "$MSG"
         exit 1
+    else
+        info "$MSG"
     fi
 fi
