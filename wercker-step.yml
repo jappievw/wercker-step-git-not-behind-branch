@@ -1,6 +1,6 @@
 ---
 name: git-not-behind-branch
-version: 0.0.1
+version: 0.0.2
 description: Makes it easy to validate whether the current commit is not behind master. And if it is by how much.
 keywords:
   - git
